@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Quasar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_primary_200</item>
+        <item name="colorPrimaryVariant">@color/dark_primary_variant_200</item>
+        <item name="colorOnPrimary">@color/dark_on_primary_high_emphasis</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_secondary_200</item>
+        <item name="colorSecondaryVariant">@color/dark_secondary_variant_200</item>
+        <item name="colorOnSecondary">@color/dark_on_secondary_high_emphasis</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

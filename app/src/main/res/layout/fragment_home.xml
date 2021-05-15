@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="apod"
+            type="com.example.quasar.data.NasaPicture" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ui_home_image"
+                android:layout_width="0dp"
+                android:layout_height="330dp"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{apod.imageUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
+
+<!--            <com.example.quasar.ZoomClass-->
+<!--                android:id="@+id/ui_home_image"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="330dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                app:imageFromUrl="@{apod.imageUrl}"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:backgroundTint="@color/surface"
+                app:cornerRadius="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ui_home_image"
+                app:icon="@drawable/ic_round_favorite_border_24"
+                app:iconTint="@color/dark_primary_200"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+
+            <TextView
+                android:id="@+id/ui_home_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{apod.title}"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ui_home_image"
+                tools:text="A Meteor and the Gegenschein" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Overline"
+                android:gravity="center"
+                app:dateFormatted="@{apod.date}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ui_home_title"
+                tools:text="12 May 2021" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{apod.description}"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                        android:gravity="center"
+                        android:justificationMode="inter_word"
+                        tools:text="Is the night sky darkest in the direction opposite the Sun? No. In fact, a rarely discernable faint glow known as the gegenschein (German for 'counter glow') can be seen 180 degrees around from the Sun in an extremely dark sky. The gegenschein is sunlight back-scattered off small interplanetary dust particles. These dust particles are millimeter sized splinters from asteroids and orbit in the ecliptic plane of the planets. Pictured here from last March is one of the more spectacular pictures of the gegenschein yet taken. The deep exposure of an extremely dark sky over Teide Observatory in Spain's Canary Islands shows the gegenschein as part of extended zodiacal light. Notable background objects include a bright meteor (on the left), the Big Dipper (top right), and Polaris (far right). The meteor nearly points toward Mount Teide, Spain's highest mountain, while the Pyramid solar laboratory is visible on the right. During the day, a phenomenon like the gegenschein called the glory can be seen in reflecting air or clouds opposite the Sun from an airplane." />
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
